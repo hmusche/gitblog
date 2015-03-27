@@ -1,4 +1,4 @@
-<?
+<?php
 require '../_base.php';
 gb::authenticate();
 gb::$title[] = 'New post';

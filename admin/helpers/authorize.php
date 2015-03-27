@@ -1,4 +1,4 @@
-<?
+<?php
 require '../_base.php';
 gb::verify();
 $authed = gb::authenticate(false);

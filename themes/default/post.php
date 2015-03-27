@@ -47,7 +47,7 @@
 		<?php if (count($post->comments)): ?>
 			<h2><?php echo $post->numberOfComments() ?></h2>
 			<ul>
-			<?
+			<?php
 				$prevlevel = 0;
 				foreach($post->comments as $level => $comment):
 					if ($level > $prevlevel)
@@ -56,7 +56,7 @@
 						echo str_repeat('</ul>', $prevlevel-$level);
 					$prevlevel = $level;
 				?>
-				<li class="comment<?
+				<li class="comment<?php
 					if ($comment->type === GBComment::TYPE_PINGBACK) echo ' pingback';
 					if ($comment->email === $post->author->email) echo ' post-author';
 			 		?>" id="comment-<?php echo $comment->id ?>">

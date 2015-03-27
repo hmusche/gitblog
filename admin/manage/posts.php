@@ -1,4 +1,4 @@
-<?
+<?php
 require_once '../_base.php';
 gb::authenticate();
 gb::$title[] = 'Posts';
@@ -191,7 +191,7 @@ uasort($muxed_posts, '_muxed_posts_sortfunc');
 				<td class="author"><?php echo h($post->author->shortName()) ?></td>
 				<td class="date modified type-number"><?php echo h($post->modified->condensed()) ?></td>
 			</tr>
-		<?
+		<?php
 		
 		# comment-out this to show parent (staged) versions below the dirty version
 		break;

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once '_base.php';
 
 # do not render this page unless there is no repo

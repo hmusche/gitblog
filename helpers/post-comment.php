@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Takes care of posting a comment.
  * 

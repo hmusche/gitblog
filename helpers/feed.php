@@ -1,4 +1,4 @@
-<?
+<?php
 $updated_time = $postspage->posts ? $postspage->posts[0]->modified->time : time();
 
 header('Content-Type: application/atom+xml; charset=utf-8');

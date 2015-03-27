@@ -55,7 +55,7 @@ If a plugin need any sort of configuration and/or keep state it should use a `gb
 
 `my-example.php`:
 
-	<?
+	<?php
 	/**
 	 * @name    My example
 	 * @version 1.0

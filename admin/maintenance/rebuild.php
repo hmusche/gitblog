@@ -1,4 +1,4 @@
-<?
+<?php
 require_once '../_base.php';
 function gb_log_html($priority, $msg) {
 	echo '<p class="logmsg '.($priority === LOG_WARNING ? 'warning' : ($priority < LOG_WARNING ? 'error' : ''))

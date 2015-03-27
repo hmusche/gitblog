@@ -1,4 +1,4 @@
-<?
+<?php
 ini_set('upload_max_filesize', '200M');
 ini_set('post_max_size', '200M');
 require_once '../_base.php';
@@ -595,7 +595,7 @@ if (isset($_FILES['wpxml'])) {
 			text-align:left;
 			font-size:50%;
 		}
-	</style><?
+	</style><?php
 	
 	if (!gb::$errors) {
 		echo '<h2>Importing '. h(basename($_FILES['wpxml']['name'])) .'</h2>';
@@ -608,7 +608,7 @@ if (isset($_FILES['wpxml'])) {
 			<p class="donelink">
 				<a href="<?php echo gb::$site_url ?>">Have a look at your blog &rarr;</a>
 			</p>
-			<?
+			<?php
 		}
 		catch (Exception $e) {
 			?>
@@ -618,7 +618,7 @@ if (isset($_FILES['wpxml'])) {
 			<p>
 				<pre><?php echo h(strval($e)) ?></pre>
 			</p>
-			<?
+			<?php
 		}
 		echo '<script type="text/javascript" charset="utf-8">setTimeout(\'window.scrollBy(0,999999);\',50)</script>';
 	}
@@ -711,6 +711,6 @@ if (!isset($_FILES['wpxml']) || gb::$errors) {
 		</p>
 	</div>
 </div>
-<?
+<?php
 } # end if posted file
 include '../_footer.php' ?>

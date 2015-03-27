@@ -1,4 +1,4 @@
-<?
+<?php
 error_reporting(E_ALL);
 $gb_time_started = microtime(true);
 date_default_timezone_set(@date_default_timezone_get());
@@ -3490,7 +3490,7 @@ function sentenceize($collection, $applyfunc=null, $nglue=', ', $endglue=' and '
  * 
  * Example of a theme:
  * 
- *   <?
+ *   <?php
  *   $gb_handle_request = true;
  *   require './gitblog/gitblog.php';
  *   # send response based on gb::$is_* properties ...

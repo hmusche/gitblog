@@ -1,4 +1,4 @@
-<?
+<?php
 $gb_handle_request = true;
 require './gitblog/gitblog.php';
 
@@ -83,7 +83,7 @@ elseif ((gb::$is_posts || gb::$is_tags || gb::$is_categories) && $postspage->pos
 			</div>
 		</div>
 		<div id="main">
-		<?
+		<?php
 		
 		if (gb::$is_404) {
 			?>
@@ -93,7 +93,7 @@ elseif ((gb::$is_posts || gb::$is_tags || gb::$is_categories) && $postspage->pos
 					The page <b><?php echo h(gb::url()->toString(false)) ?></b> does not exist.
 				</div>
 			</div>
-			<?
+			<?php
 		}
 		elseif (gb::$is_post || gb::$is_page) {
 			require gb::$theme_dir.'/post.php';
