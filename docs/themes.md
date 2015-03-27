@@ -12,12 +12,12 @@ Example of an extremely simple theme:
 	?>
 	<html>
 		<body>
-		<h1><?= gb_title() ?></h1>
+		<h1><?php echo gb_title() ?></h1>
 		<?
 		if (gb::$is_post) {
 			?>
-			<h1><?= $post->title ?></h1>
-			<?= $post->body() ?>
+			<h1><?php echo $post->title ?></h1>
+			<?php echo $post->body() ?>
 			<?
 		}
 		# handle other cases ...

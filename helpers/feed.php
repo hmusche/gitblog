@@ -9,37 +9,37 @@ echo '<?xml version="1.0" encoding="UTF-8"?>'.PHP_EOL;
       xmlns:thr="http://purl.org/syndication/thread/1.0"
       xmlns:gb="http://gitblog.se/ns/atom/1.0"
       xml:lang="en"
-      xml:base="<?= h(gb::$site_url) ?>">
-	<id><?= h(gb::url()) ?></id>
-	<title><?= h(gb::$site_title) ?></title>
-	<link rel="alternate" type="text/html" href="<?= h(gb::$site_url) ?>" />
-	<updated><?= date('c', $updated_time) ?></updated>
-	<generator uri="http://gitblog.se/" version="<?= gb::$version ?>">Gitblog</generator>
-<? foreach ($postspage->posts as $post): ?>
+      xml:base="<?php echo h(gb::$site_url) ?>">
+	<id><?php echo h(gb::url()) ?></id>
+	<title><?php echo h(gb::$site_title) ?></title>
+	<link rel="alternate" type="text/html" href="<?php echo h(gb::$site_url) ?>" />
+	<updated><?php echo date('c', $updated_time) ?></updated>
+	<generator uri="http://gitblog.se/" version="<?php echo gb::$version ?>">Gitblog</generator>
+<?php foreach ($postspage->posts as $post): ?>
 	<entry>
-		<title type="html"><?= h($post->title) ?></title>
+		<title type="html"><?php echo h($post->title) ?></title>
 		<author>
-			<name><?= h($post->author->name) ?></name>
-			<uri><?= h(gb::$site_url) ?></uri>
+			<name><?php echo h($post->author->name) ?></name>
+			<uri><?php echo h(gb::$site_url) ?></uri>
 		</author>
-		<link rel="alternate" type="text/html" href="<?= h($post->url()) ?>" />
-		<id><?= h($post->url()) ?></id>
-		<published><?= $post->published ?></published>
-		<updated><?= $post->modified ?></updated>
-		<?= $post->tagLinks('', '', '<category scheme="'.gb::url_to('tags').'" term="%n" />',
+		<link rel="alternate" type="text/html" href="<?php echo h($post->url()) ?>" />
+		<id><?php echo h($post->url()) ?></id>
+		<published><?php echo $post->published ?></published>
+		<updated><?php echo $post->modified ?></updated>
+		<?php echo $post->tagLinks('', '', '<category scheme="'.gb::url_to('tags').'" term="%n" />',
 			"\n\t\t", "\n\t\t").($post->tags ? "\n" : '') ?>
-		<?= $post->categoryLinks('', '', '<category scheme="'.gb::url_to('categories').'" term="%n" />',
+		<?php echo $post->categoryLinks('', '', '<category scheme="'.gb::url_to('categories').'" term="%n" />',
 			"\n\t\t", "\n\t\t").($post->categories ? "\n" : '') ?>
-		<comments><?= $post->comments ?></comments>
-		<gb:version><?= $post->id ?></gb:version>
-		<? if ($post->excerpt): ?>
-		<summary type="html"><![CDATA[<?= $post->excerpt ?>]]></summary>
-		<? endif ?>
-		<content type="html" xml:base="<?= h($post->url()) ?>"><![CDATA[<?= $post->body() ?><? if ($post->excerpt): ?>
-			<p><a href="<?= h($post->url()) ?>#<?= $post->domID() ?>-more">Read more...</a></p>
-		<? endif; ?>]]></content>
-		<link rel="replies" type="text/html" href="<?= h($post->url()) ?>#comments" thr:count="<?= $post->comments ?>" />
-		<thr:total><?= $post->comments ?></thr:total>
+		<comments><?php echo $post->comments ?></comments>
+		<gb:version><?php echo $post->id ?></gb:version>
+		<?php if ($post->excerpt): ?>
+		<summary type="html"><![CDATA[<?php echo $post->excerpt ?>]]></summary>
+		<?php endif ?>
+		<content type="html" xml:base="<?php echo h($post->url()) ?>"><![CDATA[<?php echo $post->body() ?><?php if ($post->excerpt): ?>
+			<p><a href="<?php echo h($post->url()) ?>#<?php echo $post->domID() ?>-more">Read more...</a></p>
+		<?php endif; ?>]]></content>
+		<link rel="replies" type="text/html" href="<?php echo h($post->url()) ?>#comments" thr:count="<?php echo $post->comments ?>" />
+		<thr:total><?php echo $post->comments ?></thr:total>
 	</entry>
-<? endforeach ?>
+<?php endforeach ?>
 </feed>

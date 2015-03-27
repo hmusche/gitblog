@@ -48,36 +48,36 @@ include '../_header.php';
 			.git-patch .lines .line.rm { background-color:#fdd; }
 			.git-patch .lines .line.ctx { background-color:#eee; color:#666; }
 </style>
-<div id="content" class="<?= gb_admin::$current_domid ?> helpers-view-commit margins">
+<div id="content" class="<?php echo gb_admin::$current_domid ?> helpers-view-commit margins">
 	<h2>Commit <span class="id"><?=substr($commit->id,0,7)?></span><span class="id tail"><?=substr($commit->id,7)?></span></h2>
 	<p class="repo-state">
-		<span class="date"><?= $commit->authorDate->condensed() ?></span>
-		by <span class="git-author" title="<?= h($commit->authorName) ?> &lt;<?= h($commit->authorEmail) ?>&gt;">
-			<?= h($commit->authorName) ?>
+		<span class="date"><?php echo $commit->authorDate->condensed() ?></span>
+		by <span class="git-author" title="<?php echo h($commit->authorName) ?> &lt;<?php echo h($commit->authorEmail) ?>&gt;">
+			<?php echo h($commit->authorName) ?>
 		</span>
 	</p>
 	
-	<? foreach ($patches as $patch): ?>
-	<div class="git-patch <?= h(strtolower($patch->action)) ?>">
+	<?php foreach ($patches as $patch): ?>
+	<div class="git-patch <?php echo h(strtolower($patch->action)) ?>">
 		<div class="header">
-			<span class="action"><?= h($patch->action) ?></span>
+			<span class="action"><?php echo h($patch->action) ?></span>
 			<?# var_dump($patch) ?>
-			<span class="filename"><?= h($patch->action === GitPatch::DELETE ? $patch->prevname : $patch->currname) ?></span>
+			<span class="filename"><?php echo h($patch->action === GitPatch::DELETE ? $patch->prevname : $patch->currname) ?></span>
 		</div>
-		<? if ($patch->action === GitPatch::EDIT_IN_PLACE): ?>
+		<?php if ($patch->action === GitPatch::EDIT_IN_PLACE): ?>
 			<div class="lines">
-				<? foreach ($patch->lines as $i => $line):
+				<?php foreach ($patch->lines as $i => $line):
 					$fc = $line ? $line{0} : '';
 					$cc = '';
 					if ($fc === '+')     $cc = 'add';
 					elseif ($fc === '-') $cc = 'rm';
 					elseif ($fc === '@') $cc = 'ctx';
 					?>
-					<pre class="line <?= $cc ?>"> <?= h($line) ?></pre>
-				<? endforeach ?>
+					<pre class="line <?php echo $cc ?>"> <?php echo h($line) ?></pre>
+				<?php endforeach ?>
 			</div>
-		<? endif ?>
+		<?php endif ?>
 	</div>
-	<? endforeach ?>
+	<?php endforeach ?>
 </div>
-<? include '../_footer.php' ?>
+<?php include '../_footer.php' ?>

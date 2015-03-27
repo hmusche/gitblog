@@ -183,9 +183,9 @@ Example of presenting ancillary meta fields in a template:
 
 	<h3>Meta fields</h3>
 	<ul>
-	<? foreach($post->meta as $name => $value): ?>
-		<li><b><?= h($name) ?></b>: <?= h($value) ?></li>
-	<? endforeach ?>
+	<?php foreach($post->meta as $name => $value): ?>
+		<li><b><?php echo h($name) ?></b>: <?php echo h($value) ?></li>
+	<?php endforeach ?>
 	</ul>
 
 Plugins can use non-reserved header fields for special purposes. In such case a rebuild 
